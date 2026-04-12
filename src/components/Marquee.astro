@@ -1,0 +1,19 @@
+---
+const skills = [
+  "Python", "TypeScript", "React", "Next.js", "React Native",
+  "Flask", "Node.js", "PostgreSQL", "Supabase", "AWS",
+  "Docker", "Stripe", "C++", "Java", "Git",
+];
+---
+
+<div class="py-10 overflow-hidden border-y border-border/50 reveal-fade" aria-label="Technical skills">
+  <div class="marquee-track">
+    {/* Duplicate the list for seamless loop */}
+    {[...skills, ...skills].map((skill) => (
+      <span class="inline-flex items-center gap-3 px-6 text-sm font-medium text-text-subtle whitespace-nowrap select-none">
+        <span class="w-1 h-1 rounded-full bg-accent/50" aria-hidden="true"></span>
+        {skill}
+      </span>
+    ))}
+  </div>
+</div>

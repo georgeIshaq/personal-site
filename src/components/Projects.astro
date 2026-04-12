@@ -1,0 +1,83 @@
+---
+import { featuredProjects } from "../data/projects";
+---
+
+<section class="px-6 md:px-12 lg:px-24 max-w-6xl mx-auto py-24">
+  <div class="flex items-center gap-4 mb-16 reveal">
+    <span class="section-label">Featured Work</span>
+    <div class="flex-1 h-px bg-border"></div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-8">
+    {featuredProjects.map((project, i) => (
+      <article class="reveal">
+        <div class={`gradient-border p-8 md:p-10 relative z-10 transition-transform duration-500 hover:translate-y-[-4px]`}>
+          <div class="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8">
+            <div class="space-y-5">
+              <!-- Award badge -->
+              {project.award && (
+                <span class="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide uppercase text-accent bg-accent/8 px-3 py-1.5 rounded-full">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                  {project.award}
+                </span>
+              )}
+
+              <!-- Title + link -->
+              <div>
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2.5 group/link"
+                  >
+                    <h3 class="text-fluid-heading font-semibold text-text group-hover/link:text-accent transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <svg class="w-5 h-5 text-text-subtle opacity-0 -translate-x-2 translate-y-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 group-hover/link:translate-y-0 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                  </a>
+                ) : (
+                  <h3 class="text-fluid-heading font-semibold text-text">
+                    {project.title}
+                  </h3>
+                )}
+                <p class="text-text-subtle text-sm mt-1">{project.subtitle}</p>
+              </div>
+
+              <!-- Description -->
+              <p class="text-fluid-body text-text-muted max-w-2xl">
+                {project.description}
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                {project.tags.map((tag) => (
+                  <span class="text-xs font-medium text-text-subtle bg-base-dim/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-border/30">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Right side: visual accent -->
+            <div class="hidden md:flex items-center justify-center">
+              <div class="relative w-24 h-24">
+                <div class={`absolute inset-0 rounded-2xl ${i === 0 ? 'bg-accent/10 rotate-12' : 'bg-highlight/10 -rotate-12'}`}></div>
+                <div class={`absolute inset-3 rounded-xl ${i === 0 ? 'bg-accent/5 -rotate-6' : 'bg-highlight/5 rotate-6'} backdrop-blur-sm`}></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class={`text-3xl font-bold ${i === 0 ? 'text-accent/40' : 'text-highlight/40'}`}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import Awards from "../components/Awards.astro";
+import Education from "../components/Education.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout>
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <main>
+    <Hero />
+    <div class="divider max-w-6xl mx-auto"></div>
+    <About />
+    <Experience />
+    <div class="divider max-w-6xl mx-auto"></div>
+    <Projects />
+    <Awards />
+    <div class="divider max-w-6xl mx-auto"></div>
+    <Education />
+    <Contact />
+  </main>
+</Layout>

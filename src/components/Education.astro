@@ -1,0 +1,37 @@
+---
+---
+
+<section class="px-6 md:px-12 lg:px-24 max-w-6xl mx-auto py-24">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Education card -->
+    <div class="bento-card reveal">
+      <span class="section-label">Education</span>
+      <h3 class="text-xl font-semibold text-text mt-3">Minerva University</h3>
+      <p class="text-text-muted text-sm mt-1">B.S. Computer Science</p>
+      <p class="text-text-subtle text-sm mt-0.5">San Francisco, CA &mdash; Expected May 2026</p>
+      <div class="flex flex-wrap gap-2 mt-5">
+        {["Algorithms", "AI", "System Design", "Software Engineering", "Data Structures"].map((course) => (
+          <span class="text-xs text-text-subtle bg-base-dim/80 px-2.5 py-1 rounded-full border border-border/30">
+            {course}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Currently card -->
+    <div class="bento-card bento-accent reveal">
+      <span class="section-label">Currently</span>
+      <h3 class="text-xl font-semibold text-text mt-3">Technical AI Safety</h3>
+      <p class="text-fluid-body text-text-muted mt-3">
+        Studying mechanistic interpretability, RLHF, and alignment science through the ARENA program.
+      </p>
+      <div class="flex flex-wrap gap-2 mt-5">
+        {["CodePath Advanced Interview Prep", "Meet @ MIT"].map((cert) => (
+          <span class="text-xs text-text-subtle bg-base-dim/80 px-2.5 py-1 rounded-full border border-border/30">
+            {cert}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
