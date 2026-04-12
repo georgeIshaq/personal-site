@@ -20,6 +20,16 @@ const {
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Prevent dark mode flash -->
+    <script is:inline>
+      (function() {
+        var s = localStorage.getItem('theme');
+        if (s === 'dark' || (!s && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
     <!-- Preload font -->
     <link
       rel="preload"
@@ -29,9 +39,7 @@ const {
       crossorigin
     />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
     <title>{title}</title>
   </head>
   <body>
