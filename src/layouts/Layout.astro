@@ -7,9 +7,33 @@ interface Props {
 }
 
 const {
-  title = "George Ishaq",
-  description = "Software engineer building at the intersection of AI and product.",
+  title = "George Ishaq — Software Engineer (Legion Health, AppLovin, Minerva)",
+  description = "George Ishaq — software engineer and founding engineer at Legion Health (YC), incoming member of technical staff at AppLovin. B.S. Computer Science, Minerva University, 2026.",
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// schema.org Person — disambiguates this George Ishaq from others and links
+// every profile into one entity for Google's knowledge graph and AI systems.
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "George Ishaq",
+  url: "https://george.ishaq.com",
+  jobTitle: "Founding Engineer",
+  worksFor: { "@type": "Organization", name: "Legion Health" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "Minerva University" },
+  knowsAbout: [
+    "Software Engineering",
+    "Artificial Intelligence",
+    "Mechanistic Interpretability",
+  ],
+  email: "mailto:ishaq@uni.minerva.edu",
+  sameAs: [
+    "https://github.com/georgeIshaq",
+    "https://linkedin.com/in/george-ishaq",
+  ],
+};
 ---
 
 <!doctype html>
@@ -19,6 +43,24 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="George Ishaq" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="profile:first_name" content="George" />
+    <meta property="profile:last_name" content="Ishaq" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Structured data: who this is -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <!-- Prevent dark mode flash -->
     <script is:inline>
