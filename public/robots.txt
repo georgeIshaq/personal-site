@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://george.ishaq.com/sitemap.xml
+Sitemap: https://george.ishaq.com/sitemap-index.xml
