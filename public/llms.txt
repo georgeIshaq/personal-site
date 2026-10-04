@@ -1,6 +1,6 @@
 # George Ishaq
 
-> Personal site of George Ishaq — software engineer. Currently founding engineer at Legion Health (YC); incoming member of technical staff at AppLovin. B.S. Computer Science, Minerva University (2026).
+> Personal site of George Ishaq — software engineer. Currently founding engineer at Legion Health (YC). B.S. Computer Science, Minerva University (2026).
 
 Single-page portfolio built with Astro and Tailwind. Highlights selected work, experience, awards, and current learning interests (mechanistic interpretability).
 
@@ -24,4 +24,3 @@ Single-page portfolio built with Astro and Tailwind. Highlights selected work, e
 
 - [Spark demo (Loom)](https://www.loom.com/share/3d13038095c94d01afb2892b81608933): Video walkthrough of Spark.
 - [Legion Health](https://legionhealth.com): Current employer.
-- [AppLovin](https://www.applovin.com): Incoming employer.
